@@ -665,7 +665,19 @@
 
     const now = new Date();
     const timeIn = now.toTimeString().slice(0,5);
-    todayLog.push({ id: w.id, firstName: w.firstName, lastName: w.lastName, trade: w.trade, company: w.company || '', phone: w.phone || '', timeIn, date: now.toISOString().slice(0,10) });
+    todayLog.push({ 
+      id:           w.id,
+      eponimo:      w.eponimo || '',
+      onoma:        w.onoma || '',
+      ama:          w.ama || '',
+      amka:         w.amka || '',
+      eidikotita:   w.eidikotita || '',
+      fasi:         w.fasi || '',
+      ergolabos:    w.ergolabos || '',
+      afmErgolabou: w.afmErgolabou || '',
+      timeIn,
+      date: now.toISOString().slice(0,10)
+    });
     saveTodayLog();
 
     document.getElementById('manualSearch').value = '';
