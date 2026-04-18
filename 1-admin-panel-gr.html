@@ -413,9 +413,13 @@
           erg:   worker.ergolabos || ''
         });
 
-        // typeNumber 0 = auto-detect size, 'M' error correction
+// typeNumber 0 = auto-detect size, 'M' error correction
         const qr = qrcode(0, 'M');
-        qr.addData(payload);
+        
+        // Μετατροπή του string σε UTF-8 bytes για σωστή απεικόνιση των Ελληνικών
+        const utf8Payload = unescape(encodeURIComponent(payload));
+        qr.addData(utf8Payload);
+        
         qr.make();
 
         // Draw to an offscreen canvas at high resolution (400px)
